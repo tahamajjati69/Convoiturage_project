@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F7FB"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- Titre -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Laisser un avis"
+            android:textSize="26sp"
+            android:textStyle="bold"
+            android:textColor="#0F172A"
+            android:layout_marginBottom="6dp"/>
+
+        <TextView
+            android:id="@+id/tvReviewTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Trajet effectué"
+            android:textSize="15sp"
+            android:textColor="#64748B"
+            android:layout_marginBottom="32dp"/>
+
+        <!-- Carte note -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:padding="20dp"
+            android:layout_marginBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Votre note"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="#334155"
+                android:layout_marginBottom="12dp"/>
+
+            <RatingBar
+                android:id="@+id/ratingBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:stepSize="1"
+                android:rating="0"
+                android:progressTint="#F59E0B"
+                android:secondaryProgressTint="#E5E7EB"/>
+
+            <TextView
+                android:id="@+id/tvRatingLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Touchez une étoile pour noter"
+                android:textSize="13sp"
+                android:textColor="#94A3B8"
+                android:layout_marginTop="8dp"/>
+        </LinearLayout>
+
+        <!-- Carte commentaire -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_bg"
+            android:padding="20dp"
+            android:layout_marginBottom="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Commentaire (optionnel)"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="#334155"
+                android:layout_marginBottom="10dp"/>
+
+            <EditText
+                android:id="@+id/etComment"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:hint="Décrivez votre expérience..."
+                android:background="@drawable/input_bg"
+                android:padding="14dp"
+                android:textSize="15sp"
+                android:gravity="top"
+                android:inputType="textMultiLine"
+                android:maxLines="5"/>
+        </LinearLayout>
+
+        <!-- Bouton envoyer -->
+        <Button
+            android:id="@+id/btnSubmitReview"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Envoyer mon avis"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:background="@drawable/button_bg"
+            android:layout_marginBottom="12dp"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="Annuler"
+            android:textSize="15sp"
+            android:textColor="#64748B"
+            android:background="@android:color/transparent"
+            android:onClick="finish"/>
+
+    </LinearLayout>
+</ScrollView>

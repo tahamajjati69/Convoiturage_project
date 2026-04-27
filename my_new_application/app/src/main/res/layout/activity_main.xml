@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0F172A">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- HEADER -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="@drawable/card_dark"
+            android:padding="18dp"
+            android:layout_marginBottom="20dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvWelcome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Bienvenue !"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Conducteur "
+                    android:textColor="#10b981"
+                    android:textSize="13sp"
+                    android:layout_marginTop="2dp"/>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnLogout"
+                android:layout_width="wrap_content"
+                android:layout_height="36dp"
+                android:text=" Quitter"
+                android:textSize="12sp"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#EF4444"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"/>
+        </LinearLayout>
+
+        <!-- BOUTON VOIR TRAJETS -->
+        <Button
+            android:id="@+id/btnVoirTrajets"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text=" Voir les trajets disponibles"
+            android:textSize="15sp"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:backgroundTint="#6C63FF"
+            android:layout_marginBottom="12dp"/>
+
+        <!-- BOUTON MES RÉSERVATIONS -->
+        <Button
+            android:id="@+id/btnMesReservations"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="  Mes réservations"
+            android:textSize="15sp"
+            android:textColor="#6C63FF"
+            android:textStyle="bold"
+            android:backgroundTint="#1E293B"
+            android:layout_marginBottom="24dp"/>
+
+        <!-- SECTION PUBLIER (conducteur seulement) -->
+        <LinearLayout
+            android:id="@+id/sectionPublier"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/card_dark"
+            android:padding="24dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nouveau trajet"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:layout_marginBottom="4dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Publier un trajet régulier"
+                android:textSize="13sp"
+                android:textColor="#64748B"
+                android:layout_marginBottom="20dp"/>
+
+            <!-- Départ -->
+            <EditText
+                android:id="@+id/etDepart"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:hint="Point de départ"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/input_dark_bg"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:textSize="15sp"
+                android:layout_marginBottom="12dp"/>
+
+            <!-- Arrivée -->
+            <EditText
+                android:id="@+id/etArrivee"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:hint="Point d'arrivée"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/input_dark_bg"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:textSize="15sp"
+                android:layout_marginBottom="20dp"/>
+            <!-- Prix -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Prix du trajet"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="#CBD5E1"
+                android:layout_marginBottom="8dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:orientation="horizontal"
+                android:background="@drawable/input_dark_bg"
+                android:layout_marginBottom="16dp">
+
+                <Button
+                    android:id="@+id/btnPrixMoins"
+                    android:layout_width="52dp"
+                    android:layout_height="match_parent"
+                    android:text="-"
+                    android:textSize="22sp"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="@android:color/transparent"/>
+
+                <EditText
+                    android:id="@+id/etPrix"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:inputType="number"
+                    android:background="@android:color/transparent"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="DH"
+                    android:gravity="center"
+                    android:textColor="#64748B"
+                    android:paddingEnd="8dp"/>
+
+                <Button
+                    android:id="@+id/btnPrixPlus"
+                    android:layout_width="52dp"
+                    android:layout_height="match_parent"
+                    android:text="+"
+                    android:textSize="22sp"
+                    android:textColor="#6C63FF"
+                    android:backgroundTint="@android:color/transparent"/>
+            </LinearLayout>
+
+            <!-- Places -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nombre de places"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="#CBD5E1"
+                android:layout_marginBottom="8dp"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:orientation="horizontal"
+                android:background="@drawable/input_dark_bg"
+                android:layout_marginBottom="24dp">
+
+                <Button
+                    android:id="@+id/btnPlacesMoins"
+                    android:layout_width="52dp"
+                    android:layout_height="match_parent"
+                    android:text="-"
+                    android:textSize="22sp"
+                    android:textColor="#FFFFFF"
+                    android:backgroundTint="@android:color/transparent"/>
+
+                <EditText
+                    android:id="@+id/etPlaces"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"
+                    android:inputType="number"
+                    android:background="@android:color/transparent"/>
+
+                <Button
+                    android:id="@+id/btnPlacesPlus"
+                    android:layout_width="52dp"
+                    android:layout_height="match_parent"
+                    android:text="+"
+                    android:textSize="22sp"
+                    android:textColor="#6C63FF"
+                    android:backgroundTint="@android:color/transparent"/>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnPublier"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:text="Publier le trajet"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:backgroundTint="#6C63FF"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F8FAFC">
+
+    <!-- Bouton Retour -->
+    <Button
+        android:id="@+id/btnRetour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="← Retour"
+        android:backgroundTint="#334155"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:layout_margin="12dp"
+        android:padding="10dp"/>
+
+    <!-- Champs de recherche -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="#FFFFFF"
+        android:elevation="4dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" Rechercher un trajet"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#0F172A"
+            android:paddingBottom="12dp"/>
+
+        <EditText
+            android:id="@+id/etDepart"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint=" Ville de départ "
+            android:padding="12dp"
+            android:background="@drawable/input_bg"
+            android:textSize="15sp"
+            android:layout_marginBottom="10dp"/>
+
+        <EditText
+            android:id="@+id/etArrivee"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint=" Ville d'arrivée "
+            android:padding="12dp"
+            android:background="@drawable/input_bg"
+            android:textSize="15sp"
+            android:layout_marginBottom="12dp"/>
+
+        <Button
+            android:id="@+id/btnRechercher"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Afficher sur la carte"
+            android:backgroundTint="#6C63FF"
+            android:textColor="#FFFFFF"
+            android:textStyle="bold"
+            android:padding="14dp"/>
+
+    </LinearLayout>
+
+    <!-- Barre 🟢 Départ → 🔴 Arrivée ✅ -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:background="#FFFFFF">
+
+        <TextView
+            android:id="@+id/tvDepart"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text=" Départ"
+            android:textColor="#16A34A"
+            android:textStyle="bold"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="  →  "
+            android:textColor="#64748B"
+            android:textSize="14sp"/>
+
+        <TextView
+            android:id="@+id/tvArrivee"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text=" Arrivée"
+            android:textColor="#DC2626"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:gravity="end"/>
+
+    </LinearLayout>
+
+    <!-- Carte -->
+    <org.osmdroid.views.MapView
+        android:id="@+id/map"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

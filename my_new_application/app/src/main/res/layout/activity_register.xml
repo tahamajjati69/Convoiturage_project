@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#0F172A"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        android:padding="28dp"
+        android:paddingTop="48dp">
+
+        <!-- Logo -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🚗"
+            android:textSize="56sp"
+            android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Créer un compte"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="6dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rejoignez la plateforme de covoiturage"
+            android:textSize="13sp"
+            android:textColor="#94A3B8"
+            android:layout_marginBottom="30dp"/>
+
+        <!-- Carte formulaire -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/white"
+            android:padding="24dp">
+
+            <!-- Nom -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nom complet"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#334155"
+                android:layout_marginBottom="6dp"/>
+
+            <EditText
+                android:id="@+id/etName"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:hint="Votre nom complet"
+                android:inputType="textPersonName"
+                android:background="@drawable/input_bg"
+                android:padding="14dp"
+                android:textSize="15sp"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Email -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#334155"
+                android:layout_marginBottom="6dp"/>
+
+            <EditText
+                android:id="@+id/etEmail"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:hint="votre@email.com"
+                android:inputType="textEmailAddress"
+                android:background="@drawable/input_bg"
+                android:padding="14dp"
+                android:textSize="15sp"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Mot de passe -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mot de passe"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#334155"
+                android:layout_marginBottom="6dp"/>
+
+            <EditText
+                android:id="@+id/etPassword"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:hint="Minimum 4 caractères"
+                android:inputType="textPassword"
+                android:background="@drawable/input_bg"
+                android:padding="14dp"
+                android:textSize="15sp"
+                android:layout_marginBottom="16dp"/>
+
+            <!-- Téléphone -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Téléphone (optionnel)"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#334155"
+                android:layout_marginBottom="6dp"/>
+
+            <EditText
+                android:id="@+id/etPhone"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:hint="06XXXXXXXX"
+                android:inputType="phone"
+                android:background="@drawable/input_bg"
+                android:padding="14dp"
+                android:textSize="15sp"
+                android:layout_marginBottom="20dp"/>
+
+            <!-- Rôle -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Je suis..."
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:textColor="#334155"
+                android:layout_marginBottom="12dp"/>
+
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="22dp">
+
+                <RadioButton
+                    android:id="@+id/rbPassenger"
+                    android:layout_width="0dp"
+                    android:layout_height="56dp"
+                    android:layout_weight="1"
+                    android:text=" Passager"
+                    android:textSize="14sp"
+                    android:textColor="#374151"
+                    android:checked="true"
+                    android:gravity="center"
+                    android:background="#F1F5F9"
+                    android:layout_marginEnd="8dp"/>
+
+                <RadioButton
+                    android:id="@+id/rbDriver"
+                    android:layout_width="0dp"
+                    android:layout_height="56dp"
+                    android:layout_weight="1"
+                    android:text=" Conducteur"
+                    android:textSize="14sp"
+                    android:textColor="#374151"
+                    android:gravity="center"
+                    android:background="#F1F5F9"/>
+
+            </RadioGroup>
+
+            <!-- Erreur -->
+            <TextView
+                android:id="@+id/tvError"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="#B91C1C"
+                android:textSize="13sp"
+                android:background="#FEE2E2"
+                android:padding="12dp"
+                android:layout_marginBottom="14dp"
+                android:visibility="gone"/>
+
+            <!-- Bouton inscription -->
+            <Button
+                android:id="@+id/btnRegister"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:text="Créer mon compte"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:backgroundTint="#6C63FF"
+                android:layout_marginBottom="14dp"/>
+
+            <!-- Lien vers login -->
+            <Button
+                android:id="@+id/btnGoLogin"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="Déjà un compte ? Se connecter"
+                android:textColor="#6C63FF"
+                android:textSize="14sp"
+                android:backgroundTint="#F1F5F9"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
