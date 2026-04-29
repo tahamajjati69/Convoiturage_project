@@ -46,25 +46,63 @@ Le projet est composé de plusieurs parties : le **frontend**, le **backend**, e
 Voici le script SQL pour créer la base de données du projet. Cette base de données contient les tables nécessaires pour gérer les utilisateurs, les trajets et les réservations.
 
 ```sql
-CREATE DATABASE co_voiturage;
+CREATE DATABASE covoiturage_ville;
 
-USE co_voiturage;
+USE covoiturage_ville;
 
-CREATE TABLE utilisateurs (
-  id INT PRIMARY KEY AUTO_INCREMENT,
-  nom VARCHAR(100),
-  email VARCHAR(100),
-  role ENUM('conducteur', 'passager', 'admin') DEFAULT 'passager'
+-- Table users
+CREATE TABLE users (
+    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    phone VARCHAR(20),
+    role ENUM('driver', 'passenger', 'admin') NOT NULL,
+    city VARCHAR(100),
+    is_active TINYINT(1) DEFAULT 1,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE trajets (
-  id INT PRIMARY KEY AUTO_INCREMENT,
-  conducteur_id INT,
-  ville_depart VARCHAR(100),
-  ville_arrivee VARCHAR(100),
-  prix DECIMAL(10,2),
-  places_disponibles INT,
-  FOREIGN KEY (conducteur_id) REFERENCES utilisateurs(id)
+-- Table rides
+CREATE TABLE rides (
+    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    driver_id INT(11) NOT NULL,
+    departure_city VARCHAR(100) NOT NULL,
+    arrival_city VARCHAR(100) NOT NULL,
+    departure_location VARCHAR(150),
+    arrival_location VARCHAR(150),
+    ride_date DATE NOT NULL,
+    ride_time TIME NOT NULL,
+    available_seats INT(11) NOT NULL,
+    price DECIMAL(10,2) NOT NULL,
+    status ENUM('open', 'full', 'cancelled') DEFAULT 'open',
+    description VARCHAR(255),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (driver_id) REFERENCES users(id)
+);
+
+-- Table ride_bookings
+CREATE TABLE ride_bookings (
+    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    ride_id INT(11) NOT NULL,
+    passenger_id INT(11) NOT NULL,
+    seats_reserved INT(11) NOT NULL,
+    booking_status ENUM('pending', 'accepted', 'rejected', 'cancelled') DEFAULT 'pending',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (ride_id) REFERENCES rides(id),
+    FOREIGN KEY (passenger_id) REFERENCES users(id)
+);
+
+-- Table ride_reviews
+CREATE TABLE ride_reviews (
+    id INT(11) AUTO_INCREMENT PRIMARY KEY,
+    ride_id INT(11) NOT NULL,
+    passenger_id INT(11) NOT NULL,
+    rating INT(11) NOT NULL,
+    comment VARCHAR(255),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (ride_id) REFERENCES rides(id),
+    FOREIGN KEY (passenger_id) REFERENCES users(id)
 );
 ```
 ##  **Video Demonstration :**
@@ -75,11 +113,8 @@ CREATE TABLE trajets (
 
 
 
-CREATE TABLE reservations (
-  id INT PRIMARY KEY AUTO_INCREMENT,
-  passager_id INT,
-  trajet_id INT,
-  statut ENUM('acceptée', 'en attente', 'refusée'),
-  FOREIGN KEY (passager_id) REFERENCES utilisateurs(id),
-  FOREIGN KEY (trajet_id) REFERENCES trajets(id)
-);
+
+
+https://github.com/user-attachments/assets/6bc518f2-fc89-4222-b62a-99ff1f75b28e
+
+
